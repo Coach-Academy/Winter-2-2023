@@ -1,0 +1,23 @@
+name: file_name_checking
+
+on:
+  pull_request:
+
+# This command allows us to run the Action automatically from the Actions tab.
+  workflow_dispatch:
+
+jobs:
+  Validate_file_names:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Filenames linter
+        # You may pin to the exact commit or the version.
+        # uses: csunibo/filenames-linter@d1475a707b90863f30986889e1bdec2cd224783d
+        uses: csunibo/filenames-linter@v1.4.1
+        with:
+          # The path to a directory to check the filenames.
+          path: ./
+          # Whether the directory should be inspected recursively or not.
+          pattern: ^(?!.*[\\/:\*\?\"<>\|]).*[^\\/. ]$
+          recursive: true
