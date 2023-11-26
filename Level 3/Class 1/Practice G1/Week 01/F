@@ -1,0 +1,17 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int m;
+    cin >> m;
+    //         30    31 
+    cout << (24-m) + 24; 
+
+    return 0;
+}
+
+
+
+
+

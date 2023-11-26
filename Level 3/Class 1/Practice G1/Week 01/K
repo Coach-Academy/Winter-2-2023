@@ -1,0 +1,22 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int l;
+    cin >> l;
+    int p, q;
+    cin >> p >> q;
+//             11   2   3 == 2.2
+    float time = float (l) / (p + q);
+    float x = p * time;
+
+    cout << x;
+
+    return 0;
+}
+
+
+
+
+
