@@ -1,0 +1,27 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define FAST ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+
+
+
+signed  main(){
+    FAST
+    //freopen("game.in","rt",stdin);
+    //freopen("game.out","wt",stdout);
+
+   int n,d;
+    cin>>n>>d;
+    vector<int>vec(n);
+    vector<int>v(n);
+    for(int i=0;i<n;i++)cin>>vec[i];
+    d=n-d;
+    for(int i=0;i<n;i++){
+      v[(i+d)%n]=vec[i];
+    }
+    for(int i=0;i<n;i++)cout<<v[i]<<' ';
+    cout<<'\n';
+
+
+    return 0;
+}
+
