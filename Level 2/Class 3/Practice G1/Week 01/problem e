@@ -1,0 +1,63 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+
+signed  main(){
+
+    int q;
+    cin>>q;
+    deque<int>dq;
+    bool rev=0;
+    while(q--){
+        string op;
+        cin>>op;
+        if(op=="toFront"){
+            int val;
+            cin>>val;
+            if(rev==0)dq.push_front(val);
+            else dq.push_back(val);
+        }
+        else if(op=="push_back"){
+            int val;
+            cin>>val;
+            if(rev)dq.push_front(val);  // if(rev!=0)
+            else dq.push_back(val);
+        }
+        else if(op=="front"){
+            if(dq.empty())cout<<"No job for Ada?\n";
+            else{
+                if(rev==0){
+                    cout<<dq.front()<<'\n';
+                    dq.pop_front();
+                }
+                else{
+                    cout<<dq.back()<<'\n';
+                    dq.pop_back();
+                }
+            }
+        }
+        else if(op=="back"){
+            if(dq.empty())cout<<"No job for Ada?\n";
+            else{
+                if(rev){
+                    cout<<dq.front()<<'\n';
+                    dq.pop_front();
+                }
+                else{
+                    cout<<dq.back()<<'\n';
+                    dq.pop_back();
+                }
+            }
+        }
+        else    rev=1-rev;
+
+
+
+    }
+
+    return 0;
+}
+
+
+
+
