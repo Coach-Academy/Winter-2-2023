@@ -1,0 +1,25 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+
+signed  main(){
+
+    int n,m;
+    cin>>n>>m;
+    int mx=0,idxmx;
+    for(int i=0;i<n;i++){
+        int cad;
+        cin>>cad;
+        int cnt=((cad+m-1)/m);
+        if(cnt>=mx){
+            mx=cnt;
+            idxmx=i;
+        }
+    }
+    cout<<idxmx+1<<'\n';
+    return 0;
+}
+
+
+
+
