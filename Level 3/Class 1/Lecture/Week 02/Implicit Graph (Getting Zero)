@@ -1,0 +1,48 @@
+#include <bits/stdc++.h>
+#define FIO ios_base::sync_with_stdio(false), cin.tie(nullptr), cout.tie(nullptr);
+using namespace std;
+const int MOD = 32768;
+
+vector<int> steps;
+vector<vector<int>> adj;
+
+void BFS(int src) {
+    queue<int> q;
+    steps[src] = 0;
+    q.push(src);
+    while (!q.empty()) {
+        int u = q.front();
+        q.pop();
+
+        for (int v: adj[u]) {
+            if (steps[v] == 1e9) {
+                steps[v] = steps[u] + 1;
+                q.push(v);
+            }
+        }
+    }
+}
+
+int main() {
+    FIO
+    int n;
+    cin >> n;
+    steps.assign(MOD, 1e9);
+    adj.resize(MOD);
+    vector<int> arr(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> arr[i];
+    }
+
+    for (int i = 0; i < MOD; ++i) {
+        adj[(i + 1) % MOD].push_back(i);
+        adj[(i * 2) % MOD].push_back(i);
+    }
+
+    BFS(0);
+    for (int i = 0; i < n; ++i) {
+        cout << steps[arr[i]] << " ";
+    }
+    cout << "\n";
+    return 0;
+}
