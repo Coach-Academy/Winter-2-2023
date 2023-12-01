@@ -1,0 +1,54 @@
+#include <bits/stdc++.h>
+#define FIO ios_base::sync_with_stdio(false), cin.tie(nullptr), cout.tie(nullptr);
+using namespace std;
+
+int n, m;
+vector<vector<char>> grid;
+vector<vector<int>> color;
+int dx[] = {1, -1, 0, 0};
+int dy[] = {0, 0, -1, 1};
+
+void floodFill(int start_x, int start_y, int new_color) {
+    queue<pair<int,int>> q;
+    q.push({start_x, start_y});
+    color[start_x][start_y] = new_color;
+    while (!q.empty()) {
+        int x = q.front().first;
+        int y = q.front().second;
+        q.pop();
+
+        for (int i = 0; i < 4; ++i) {
+            int nx = x + dx[i];
+            int ny = y + dy[i];
+
+            // validate cell (nx, ny)
+            if (nx < 0 || nx >= n || ny < 0 || ny >= m || color[nx][ny] == new_color || grid[nx][ny] == '#')
+                continue;
+
+            q.push({nx, ny});
+            color[nx][ny] = new_color;
+        }
+    }
+}
+
+int main() {
+    FIO
+    cin >> n >> m;
+    grid = vector<vector<char>>(n, vector<char>(m));
+    color = vector<vector<int>>(n, vector<int>(m));
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < m; ++j) {
+            cin >> grid[i][j];
+        }
+    }
+    int src_x, src_y;
+    cin >> src_x >> src_y;
+    floodFill(src_x, src_y, 5);
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < m; ++j) {
+            cout << color[i][j] << " ";
+        }
+        cout << "\n";
+    }
+    return 0;
+}
