@@ -1,0 +1,47 @@
+#include <bits/stdc++.h>
+#define FIO ios_base::sync_with_stdio(false), cin.tie(nullptr), cout.tie(nullptr);
+using namespace std;
+
+int n;
+vector<vector<int>> adj;
+vector<int> dis;
+
+void shortest_paths(int src) {
+    queue<int> q;
+    q.push(src);
+    dis[src] = 0;
+    
+    while (!q.empty()) {
+        int u = q.front();
+        q.pop();
+
+        for (int v: adj[u]) {
+            // if not visited
+            if (dis[v] == 1e9) {
+                dis[v] = dis[u] + 1;
+                q.push(v);
+            }
+        }
+    }
+}
+
+int main() {
+    FIO
+    int m;
+    cin >> n >> m;
+    adj.resize(n);
+    dis.assign(n, 1e9);
+    for (int i = 0; i < m; ++i) {
+        int u, v;
+        cin >> u >> v;
+        --u, --v;
+        adj[u].push_back(v);
+        adj[v].push_back(u);
+    }
+    shortest_paths(0);
+    for (int i = 0; i < n; ++i) {
+        cout << dis[i] << " ";
+    }
+    cout << "\n";
+    return 0;
+}
