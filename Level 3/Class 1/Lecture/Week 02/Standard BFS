@@ -1,0 +1,45 @@
+#include <bits/stdc++.h>
+#define FIO ios_base::sync_with_stdio(false), cin.tie(nullptr), cout.tie(nullptr);
+using namespace std;
+
+vector<vector<int>> adj;
+vector<bool> vis;
+
+void BFS(int src) {
+    queue<int> q;
+
+    q.push(src);
+    vis[src] = true;
+
+    while (!q.empty()) {
+        int u = q.front();
+        q.pop();
+
+        cout << u << " ";
+
+        for (int v: adj[u]) {
+            if (!vis[v]) {
+                q.push(v);
+                vis[v] = true;
+            }
+        }
+    }
+
+}
+
+int main() {
+    FIO
+    int n, m;
+    cin >> n >> m;
+    adj.resize(n);
+    vis.resize(n);
+    for (int i = 0; i < m; ++i) {
+        int u, v;
+        cin >> u >> v;
+        --u, --v;
+        adj[u].push_back(v);
+        adj[v].push_back(u);
+    }
+    BFS(0);
+    return 0;
+}
