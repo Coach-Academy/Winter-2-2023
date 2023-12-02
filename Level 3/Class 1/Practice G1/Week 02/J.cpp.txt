@@ -1,0 +1,27 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main() {
+    int a,b,c;
+    cin >> a >> b >> c;
+    // Takahashi  Aoki
+    //     a        b
+    if(a>b)cout << "Takahashi";
+    else if(b>a)cout << "Aoki";
+    else {
+        if (c == 0) { // Takahashi
+            cout << "Aoki";
+        } else { // Aoki
+            cout << "Takahashi";
+        }
+    }
+
+    return 0;
+}
+
+
+
+
+
