@@ -1,0 +1,24 @@
+#include<iostream>
+using namespace std;
+int main(){
+
+  
+int a,b,c;
+
+cin>>a>>b>>c;
+
+if(a>b)
+
+cout<<"Takahashi"<<endl;
+
+else if (a<b)
+cout<<"Aoki";
+
+else if(a==b &&c==0)
+
+cout<<"Aoki";
+
+
+else cout<<"Takahashi"<<endl;
+
+}
