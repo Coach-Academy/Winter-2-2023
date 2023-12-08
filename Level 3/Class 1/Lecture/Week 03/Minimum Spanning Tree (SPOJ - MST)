@@ -1,0 +1,58 @@
+#include <bits/stdc++.h>
+#define FIO ios_base::sync_with_stdio(false), cin.tie(nullptr), cout.tie(nullptr);
+using namespace std;
+typedef long long ll;
+
+struct DSU{
+    int n, cnt;
+    vector<int> par, sz;
+    DSU(int _n) : n(_n), cnt(_n), par(_n), sz(_n) {
+        for (int i = 0; i < n; ++i) {
+            par[i] = i;
+            sz[i] = 1;
+        }
+    }
+
+    int find_set(int u) {
+        if (par[u] == u)
+            return u;
+        return par[u] = find_set(par[u]);
+    }
+
+    bool union_sets(int u, int v) {
+        u = find_set(u);
+        v = find_set(v);
+        if (u == v)
+            return false;
+        if (sz[u] > sz[v])
+            swap(u, v);
+        par[u] = v;
+        sz[v] += sz[u];
+        cnt--;
+        return true;
+    }
+};
+
+int main() {
+    FIO
+    int n, m;
+    cin >> n >> m;
+    DSU dsu(n);
+    vector<pair<int, pair<int,int>>> edges;
+    for (int i = 0; i < m; ++i) {
+        int u, v, c;
+        cin >> u >> v >> c;
+        edges.push_back({c, {--u, --v}});
+    }
+    sort(edges.begin(), edges.end());
+    int sum = 0;
+    for (int i = 0; i < edges.size(); ++i) {
+        int c = edges[i].first,
+            u = edges[i].second.first,
+            v = edges[i].second.second;
+        if (dsu.union_sets(u, v)) {
+            sum += c;
+        }
+    }
+    cout << sum;
+}
