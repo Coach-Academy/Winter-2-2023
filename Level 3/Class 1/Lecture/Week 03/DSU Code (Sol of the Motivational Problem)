@@ -1,0 +1,55 @@
+#include <bits/stdc++.h>
+#define FIO ios_base::sync_with_stdio(false), cin.tie(nullptr), cout.tie(nullptr);
+using namespace std;
+typedef long long ll;
+
+struct DSU{
+    int n, cnt;
+    vector<int> par, sz;
+    DSU(int _n) : n(_n), cnt(_n), par(_n), sz(_n) {
+        for (int i = 0; i < n; ++i) {
+            par[i] = i;
+            sz[i] = 1;
+        }
+    }
+
+    int find_set(int u) {
+        if (par[u] == u)
+            return u;
+        return par[u] = find_set(par[u]);
+    }
+
+    void union_sets(int u, int v) {
+        u = find_set(u);
+        v = find_set(v);
+        if (u == v)
+            return;
+        if (sz[u] > sz[v])
+            swap(u, v);
+        par[u] = v;
+        sz[v] += sz[u];
+        cnt--;
+    }
+};
+
+int main() {
+    FIO;
+    int n, m;
+    cin >> n >> m;
+    DSU dsu(n);
+    for (int i = 0; i < m; ++i) {
+        int u, v;
+        cin >> u >> v;
+        dsu.union_sets(--u, --v);
+    }
+    int q;
+    cin >> q;
+    while (q--) {
+        int u, v;
+        cin >> u >> v;
+        if (dsu.find_set(--u) == dsu.find_set(--v))
+            cout << "nodes " << u + 1 << " & " << v + 1 << " are reachable from each other.\n";
+        else
+            cout << "nodes " << u + 1 << " & " << v + 1 << " are NOT reachable from each other.\n";
+    }
+}
