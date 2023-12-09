@@ -1,0 +1,33 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n; // 47
+    for (int i = 1; i <= n; ++i) {
+        int num = i; // 47
+        bool check = true;
+        while (num > 0) {
+            int ld = num % 10; // 7
+            num /= 10; // 4
+            if (ld != 4 && ld != 7) {
+                check = false;
+                break;
+            }
+        }
+        // num = 0
+        if (check == true && n % i == 0){
+            cout <<"YES";
+            return 0;
+        }
+    }
+    cout << "NO";
+    return 0;
+}
+
+
+
+
+
