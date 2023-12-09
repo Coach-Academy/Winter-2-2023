@@ -1,0 +1,55 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+    int cnt1 = 0, cnt2 = 0, cnt3 = 0, cnt4 = 0;
+    for (int i = 0; i < n; ++i) {
+        int s;// 1 2 3 4
+        cin >> s;
+        if (s == 1)cnt1++;
+        else if (s == 2)cnt2++;
+        else if (s == 3)cnt3++;
+        else cnt4++;
+    }
+    int cntTaxis = 0;
+    // 444444444444
+    cntTaxis += cnt4;
+    // 3333333333333
+    if (cnt3 >= cnt1) {
+        cntTaxis += cnt3;
+        cnt3 = 0;
+        cnt1 = 0;
+    } else {
+        cntTaxis += cnt3;
+        cnt1 -= cnt3;
+        cnt3 = 0;
+    }
+    // 22222222222
+    if (cnt2 % 2 == 0) {
+        cntTaxis += cnt2 / 2;
+        cnt2 = 0;
+    } else {
+        cntTaxis += cnt2 / 2;
+        cnt2 = 1;
+    }
+    if (cnt2 == 1) {
+        cnt1 -= 2;
+        cntTaxis++;
+    }
+    // 11111111111111
+    if (cnt1 > 0) {
+        cntTaxis += ceil(cnt1 / 4.0);
+    }
+    cout << cntTaxis;
+
+    return 0;
+}
+
+
+
+
+

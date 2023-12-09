@@ -1,0 +1,24 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main() {
+    int t;
+    cin >> t;
+    int x = 0;
+    while (t--) {
+        char c1, c2, c3;
+        cin >> c1 >> c2 >> c3;
+        if (c1 == '+' || c3 == '+')x++; // ++x , x++
+        else if (c1 == '-' || c3 == '-')x--; // --x , x--
+
+    }
+    cout << x;
+    return 0;
+}
+
+
+
+
+
