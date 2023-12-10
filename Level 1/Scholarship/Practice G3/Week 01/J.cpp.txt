@@ -1,0 +1,17 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main() {
+    int x; // 1 2 3 4
+    cin >> x; // 13
+    int cnt = ceil(x / 5.0); // 3
+    cout << cnt;
+    return 0;
+}
+
+
+
+
+

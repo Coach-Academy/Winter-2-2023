@@ -1,0 +1,20 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main() {
+    int l;
+    cin >> l;
+    int p, q;
+    cin >> p >> q;
+    float t = l / float(p + q);
+    float x = t * p;
+    cout << x;
+    return 0;
+}
+
+
+
+
+
