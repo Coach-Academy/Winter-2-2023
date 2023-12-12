@@ -1,0 +1,20 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+    int sum = 0, steps = 0, cubes = 1;
+    while (n > 0) {
+        sum += cubes;
+        if (n >= sum) {
+            n -= sum;
+            steps++;
+        }
+        else {
+            break;
+        }
+        cubes++;
+    }
+    cout << steps;
+}

@@ -1,0 +1,30 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+    // 1234 % 10 = 4
+    // 1234 / 10 = 123
+    bool ok = false;
+    for (int i = 1; i <= n; ++i) {
+        if (n % i == 0) {
+            // check if i is lucky
+            bool isLucky = true;
+            int num = i;
+            while (num > 0) {
+                int digit = num % 10;
+                if (digit != 4 && digit != 7) {
+                    isLucky = false;
+                    break;
+                }
+                num /= 10;
+            }
+            if (isLucky) {
+                ok = true;
+                break;
+            }
+        }
+    }
+    cout << (ok ? "YES" : "NO");
+}

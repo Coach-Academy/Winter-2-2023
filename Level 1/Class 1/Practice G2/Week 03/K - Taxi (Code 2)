@@ -1,0 +1,45 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+    int one = 0, two = 0, three = 0, four = 0;
+    for (int i = 0; i < n; ++i) {
+        int sz;
+        cin >> sz;
+        if (sz == 1) one++;
+        else if (sz == 2) two++;
+        else if (sz == 3) three++;
+        else four++;
+    }
+
+    // handle groups of four
+    int taxis = four;
+
+    // handle groups of three & one
+    int mn;
+    if (three < one) mn = three;
+    else mn = one;
+
+    taxis += mn;
+    three -= mn;
+    one -= mn;
+
+    taxis += three;
+
+    // handle groups of two
+    taxis += two / 2;
+    two %= 2;
+
+    // two is now at most 1
+    if (two > 0) {
+        taxis++;
+        two--;
+        if (one >= 2) one -= 2;
+        else if (one > 0) one--;
+    }
+
+    taxis += (one + 3) / 4;
+    cout << taxis << "\n";
+}
