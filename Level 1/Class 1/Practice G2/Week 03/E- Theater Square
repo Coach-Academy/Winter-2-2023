@@ -1,0 +1,10 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main() {
+    long long n, m;
+    double a;
+    cin >> n >> m >> a;
+    cout << (long long)(ceil(n / a) * ceil(m / a));
+}
