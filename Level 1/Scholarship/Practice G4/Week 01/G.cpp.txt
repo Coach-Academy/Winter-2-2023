@@ -1,0 +1,17 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main() {
+    int a, b;
+    cin >> a >> b;
+    float x = (a * b) /100.0;
+    cout << x;
+    return 0;
+}
+
+
+
+
+

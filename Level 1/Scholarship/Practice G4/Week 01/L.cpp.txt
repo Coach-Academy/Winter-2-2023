@@ -1,0 +1,31 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n; // 525
+    int cnt = 0;
+    // 100
+    cnt += n / 100; // 5
+    n %= 100; // 25
+    // 20
+    cnt += n / 20; // 1
+    n %= 20; // 5
+    // 10
+    cnt += n / 10; // 0
+    n %= 10; // 5
+    // 5
+    cnt += n / 5; // 1
+    n %= 5; // 0
+    // 1
+    cnt += n;
+    cout << cnt;
+    return 0;
+}
+
+
+
+
+

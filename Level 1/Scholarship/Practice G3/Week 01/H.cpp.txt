@@ -1,0 +1,17 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main() {
+    int a, b;
+    cin >> a >> b;
+    float c = (a - b) / 3.0 + b;
+    cout << c;
+    return 0;
+}
+
+
+
+
+
