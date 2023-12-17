@@ -1,0 +1,18 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main() {
+    int n, m, a; // 1e9,1e9,1
+    cin >> n >> m >> a;
+    long long len = ceil(float(m) / a);
+    int wth = ceil(float(n) / a);
+    cout << len * wth;
+    return 0;
+}
+
+
+
+
+
