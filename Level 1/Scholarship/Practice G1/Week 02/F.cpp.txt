@@ -1,0 +1,39 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main() {
+    char a,b,c;
+    cin >> a >> b >> c;
+    if(a==c)cout <<"Yes";
+    else cout <<"No";
+    return 0;
+}
+
+
+
+
+
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n; // 5
+    int a, c;
+    // 100     999
+    c = n % 10; // 2
+    n /= 100;
+    a = n;
+    if (a == c)cout << "Yes";
+    else cout << "No";
+    return 0;
+}
+
+
+
+
+
