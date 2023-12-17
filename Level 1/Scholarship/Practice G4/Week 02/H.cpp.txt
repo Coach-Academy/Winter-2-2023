@@ -1,0 +1,17 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main() {
+    int m,d;
+    cin >> m >> d;
+    if(d < m)cout << m-1;
+    else cout << m;
+    return 0;
+}
+
+
+
+
+

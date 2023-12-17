@@ -1,0 +1,23 @@
+#include <iostream>
+#include <cmath>
+#include <algorithm>
+
+using namespace std;
+int main() {
+    int a,b;
+    cin >> a >> b;
+    int sum = a+b;
+    int sub = a-b;
+    int times = a*b;
+//    if(sum >= sub && sum >= times){
+//        cout << sum;
+//    }
+//    else if(sub >= sum && sub >= times){
+//        cout << sub;
+//    }
+//    else cout << times;
+    cout << max({sum,sub,times});
+
+
+    return 0;
+}
