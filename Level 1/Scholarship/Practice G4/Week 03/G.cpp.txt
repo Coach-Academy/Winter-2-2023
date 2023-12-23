@@ -1,0 +1,25 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main() {
+    int n, op;
+    cin >> n >> op;
+    while (op > 0) {
+        op--;
+        if ((n % 10) != 0) {
+            n--;
+        } else {
+            n /= 10;
+        }
+    }
+    cout << n;
+
+    return 0;
+}
+
+
+
+
+
