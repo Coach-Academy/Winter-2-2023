@@ -1,0 +1,28 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+void solve() {
+    int m, n;
+    cin >> m >> n;
+    int arr[n];
+    for (int i = 0; i < n; ++i) {
+        cin >> arr[i];
+    }
+    sort(arr, arr + n);
+    // 4 6
+    // 5 7 10 10 12 22
+    int ans;
+    for (int i = 0; i <= n - m; ++i) {
+        int mx = arr[i+m-1], mn = arr[i];
+        ans = min(mx - mn, ans);
+    }
+    cout << ans;
+    cout << endl;
+}
+
+int main() {
+
+        solve();
+
+}
