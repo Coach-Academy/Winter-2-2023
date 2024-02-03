@@ -1,0 +1,28 @@
+#include <iostream>
+#include <cmath>
+#include <algorithm>
+
+using namespace std;
+
+int main() {
+    int t;
+    cin >> t;
+    while (t--) {
+        int n;
+        cin >> n;
+        int arr[n];
+        for (int i = 0; i < n; ++i) {
+            cin >> arr[i];
+        }
+        // 3 9 4 6 7 5
+        // mn = 4
+        int mn = 1e9;
+        int cnt = 0;
+        for (int i = n - 1; i >= 0; --i) {
+            if (arr[i] > mn)cnt++;
+            mn = min(mn, arr[i]);
+        }
+        cout << cnt <<endl;
+    }
+    return 0;
+}
