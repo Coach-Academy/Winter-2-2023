@@ -21,15 +21,22 @@ int main() {
     freopen("output.txt", "w", stdout);
 #endif
 
-    int n;
-    cin >> n;
-    int arr[n];
-    bool isFound = false;
-    for (int i = 0; i < n; ++i) {
+    int students, puzzles;
+    cin >> students >> puzzles;
+    int arr[puzzles];
+    for (int i = 0; i < puzzles; ++i) {
         cin >> arr[i];
-        if (arr[i] == 1) {
-            isFound = true;
+    }
+
+    sort(arr, arr + puzzles);
+    int mnDif = arr[students - 1] - arr[0];
+
+    for (int i = 1; i <= puzzles - students; ++i) {
+        int curDif = arr[i + students - 1] - arr[i];
+        if(curDif < mnDif){
+            mnDif = curDif;
         }
     }
-    cout << (isFound ? "-1" : "1");
+
+    cout << mnDif;
 }

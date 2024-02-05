@@ -24,34 +24,29 @@ int main() {
     int n;
     cin >> n;
     int arr[n + 1];
-
-
     int mx = INT_MIN;
     int mxIdx = INT_MIN;
-
     int mn = INT_MAX;
     int mnIdx = INT_MAX;
-
     for (int i = 1; i <= n; ++i) {
         cin >> arr[i];
-        if(arr[i] > mx){
+        if (arr[i] > mx) {
             mxIdx = i;
             mx = arr[i];
         }
-        if(arr[i] <= mn){
+        if (arr[i] <= mn) {
             mnIdx = i;
             mn = arr[i];
         }
     }
-
     int swaps = 0;
-    if(mxIdx != 1 || mnIdx != n){
+    if (mxIdx != 1 || mnIdx != n) {
         swaps += mxIdx - 1;
         swaps += n - mnIdx;
     }
-    if(mxIdx > mnIdx){
+    if (mxIdx > mnIdx) {
         swaps--;
     }
-
     cout << swaps;
+
 }

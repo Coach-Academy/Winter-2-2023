@@ -21,25 +21,28 @@ int main() {
     freopen("output.txt", "w", stdout);
 #endif
 
-    int n;
-    cin >> n;
-    int scores[n];
-    for (int i = 0; i < n; ++i) {
-        cin >> scores[i];
+    int contests;
+    cin >> contests;
+    int points[contests];
+
+    for (int i = 0; i < contests; ++i) {
+        cin >> points[i];
     }
 
-    int mn = scores[0], mx = scores[0];
-    int cnt = 0;
-    for (int i = 1; i < n; ++i) {
-        if (scores[i] < mn) {
-            mn = scores[i];
-            cnt++;
+    int mxScore = points[0];
+    int mnScore = points[0];
+    int cntAmazing = 0;
+
+    for (int i = 1; i < contests; ++i) {
+        if (points[i] > mxScore) {
+            mxScore = points[i];
+            cntAmazing++;
         }
-        if (scores[i] > mx) {
-            mx = scores[i];
-            cnt++;
+        if (points[i] < mnScore) {
+            mnScore = points[i];
+            cntAmazing++;
         }
     }
-    cout << cnt;
 
+    cout << cntAmazing;
 }

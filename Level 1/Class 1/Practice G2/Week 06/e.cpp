@@ -21,21 +21,23 @@ int main() {
     freopen("output.txt", "w", stdout);
 #endif
 
-    int tasks, replaces, value;
-
-    cin >> tasks >> replaces >> value;
+    int tasks, chances, value;
+    cin >> tasks >> chances >> value;
     int arr[tasks];
     for (int i = 0; i < tasks; ++i) {
         cin >> arr[i];
     }
-
     reverse(arr, arr + tasks);
-    for (int i = 0; i < replaces; ++i) {
+
+
+    for (int i = 0; i < chances; ++i) {
         arr[i] = value;
     }
+
     int sum = 0;
     for (int i = 0; i < tasks; ++i) {
         sum += arr[i];
     }
+
     cout << sum;
 }

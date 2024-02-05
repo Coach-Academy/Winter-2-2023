@@ -24,16 +24,15 @@ int main() {
     string before, after;
     cin >> before >> after;
     reverse(after.begin(), after.end());
-    bool equals = true;
+
+    bool isEqual = true;
     for (int i = 0; i < after.size(); ++i) {
-        if (after[i] != before[i]) {
-            equals = false;
+        if(before[i] != after[i]){
+            isEqual = false;
             break;
         }
     }
 
-    cout << (equals ? "YES" : "NO");
 
-
-
+    cout << (isEqual ? "YES" : "NO");
 }

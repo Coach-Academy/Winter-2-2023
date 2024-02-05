@@ -23,13 +23,23 @@ int main() {
 
     int n;
     cin >> n;
-    int arr[n];
-    bool isFound = false;
+    int scores[n];
     for (int i = 0; i < n; ++i) {
-        cin >> arr[i];
-        if (arr[i] == 1) {
-            isFound = true;
+        cin >> scores[i];
+    }
+
+    int mn = scores[0], mx = scores[0];
+    int cnt = 0;
+    for (int i = 1; i < n; ++i) {
+        if (scores[i] < mn) {
+            mn = scores[i];
+            cnt++;
+        }
+        if (scores[i] > mx) {
+            mx = scores[i];
+            cnt++;
         }
     }
-    cout << (isFound ? "-1" : "1");
+    cout << cnt;
+
 }

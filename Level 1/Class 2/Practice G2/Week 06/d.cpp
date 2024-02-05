@@ -23,31 +23,35 @@ int main() {
 
     int songs, space;
     cin >> songs >> space;
+    long long before, after;
     int dif[songs];
     long long sumBefore = 0, sumAfter = 0;
-    int before, after;
-
     for (int i = 0; i < songs; ++i) {
         cin >> before >> after;
         sumBefore += before;
         sumAfter += after;
         dif[i] = before - after;
     }
-    int compressed = 0;
-    if (sumBefore <= space) {
+
+    if(sumBefore <= space){
         cout << 0;
-    } else if (sumAfter > space) {
+    }
+    else if(sumAfter > space){
         cout << -1;
-    } else {
+    }
+    else{
         sort(dif, dif + songs);
         reverse(dif, dif + songs);
+
+        int cntCompressed = 0;
         for (int i = 0; i < songs; ++i) {
             sumBefore -= dif[i];
-            compressed++;
-            if (sumBefore <= space) {
+            cntCompressed++;
+            if(sumBefore <= space){
                 break;
             }
         }
-        cout << compressed;
+        cout << cntCompressed;
     }
+
 }

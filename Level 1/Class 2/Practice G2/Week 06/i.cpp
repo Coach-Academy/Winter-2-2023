@@ -16,25 +16,24 @@ void fast() {
 int main() {
     fast();
 
-#ifndef ONLINE_JUDGE
-    freopen("input.txt", "r", stdin);
-    freopen("output.txt", "w", stdout);
-#endif
+    #ifndef ONLINE_JUDGE
+        freopen("input.txt", "r", stdin);
+        freopen("output.txt", "w", stdout);
+    #endif
 
     int stations;
     cin >> stations;
-    int exit, enter;
-    int maxCapacity = 0;
-    int passengers = 0;
+    int enter, exit;
+    int mx = 0; // 6
+    int passengers = 0; // 0
     for (int i = 0; i < stations; ++i) {
         cin >> exit >> enter;
-        passengers -= exit;
-        passengers += enter;
-        if (passengers > maxCapacity) {
-            maxCapacity = passengers;
+        passengers -= exit; // 0
+        passengers += enter; // 0
+        if (passengers > mx) {
+            mx = passengers;
         }
     }
-
-    cout << maxCapacity;
+    cout << mx;
 
 }
