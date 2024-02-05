@@ -21,15 +21,21 @@ int main() {
     freopen("output.txt", "w", stdout);
 #endif
 
-    int n;
-    cin >> n;
-    int arr[n];
-    bool isFound = false;
-    for (int i = 0; i < n; ++i) {
+    int tasks, replaces, value;
+
+    cin >> tasks >> replaces >> value;
+    int arr[tasks];
+    for (int i = 0; i < tasks; ++i) {
         cin >> arr[i];
-        if (arr[i] == 1) {
-            isFound = true;
-        }
     }
-    cout << (isFound ? "-1" : "1");
+
+    reverse(arr, arr + tasks);
+    for (int i = 0; i < replaces; ++i) {
+        arr[i] = value;
+    }
+    int sum = 0;
+    for (int i = 0; i < tasks; ++i) {
+        sum += arr[i];
+    }
+    cout << sum;
 }

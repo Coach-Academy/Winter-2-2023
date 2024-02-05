@@ -21,15 +21,19 @@ int main() {
     freopen("output.txt", "w", stdout);
 #endif
 
-    int n;
-    cin >> n;
-    int arr[n];
-    bool isFound = false;
-    for (int i = 0; i < n; ++i) {
-        cin >> arr[i];
-        if (arr[i] == 1) {
-            isFound = true;
+    string before, after;
+    cin >> before >> after;
+    reverse(after.begin(), after.end());
+    bool equals = true;
+    for (int i = 0; i < after.size(); ++i) {
+        if (after[i] != before[i]) {
+            equals = false;
+            break;
         }
     }
-    cout << (isFound ? "-1" : "1");
+
+    cout << (equals ? "YES" : "NO");
+
+
+
 }

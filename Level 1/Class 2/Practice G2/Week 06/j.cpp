@@ -27,43 +27,39 @@ int main() {
     for (int i = 0; i < n; ++i) {
         arr[i] = i + 1;
     }
-    int curPerm = 1;
 
     int perm1[n], perm2[n];
     for (int i = 0; i < n; ++i) {
         cin >> perm1[i];
     }
+
     for (int i = 0; i < n; ++i) {
         cin >> perm2[i];
     }
-
     int firstPos, secondPos;
+    int curPerm = 1;
     do {
         bool isEqual = true;
-        for (int i = 0; i < n; ++i) {
-            if(arr[i] != perm1[i]){
+        for (int i = 0; i < n; i++) {
+            if (arr[i] != perm1[i]) {
                 isEqual = false;
                 break;
             }
         }
-        if(isEqual){
+        if (isEqual) {
             firstPos = curPerm;
         }
-
         isEqual = true;
         for (int i = 0; i < n; ++i) {
-            if(arr[i] != perm2[i]){
+            if (arr[i] != perm2[i]) {
                 isEqual = false;
                 break;
             }
         }
-        if(isEqual){
+        if (isEqual) {
             secondPos = curPerm;
         }
-
         curPerm++;
     } while (next_permutation(arr, arr + n));
-
-
     cout << abs(firstPos - secondPos);
 }

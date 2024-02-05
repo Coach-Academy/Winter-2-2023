@@ -16,20 +16,22 @@ void fast() {
 int main() {
     fast();
 
-#ifndef ONLINE_JUDGE
-    freopen("input.txt", "r", stdin);
-    freopen("output.txt", "w", stdout);
-#endif
+    #ifndef ONLINE_JUDGE
+        freopen("input.txt", "r", stdin);
+        freopen("output.txt", "w", stdout);
+    #endif
 
     int n;
     cin >> n;
-    int arr[n];
-    bool isFound = false;
+
+    int x;
+    bool hasOne = false;
     for (int i = 0; i < n; ++i) {
-        cin >> arr[i];
-        if (arr[i] == 1) {
-            isFound = true;
+        cin >> x;
+        if(x == 1){
+            hasOne = true;
         }
     }
-    cout << (isFound ? "-1" : "1");
+
+    cout << (hasOne ? "-1" : "1" );
 }
