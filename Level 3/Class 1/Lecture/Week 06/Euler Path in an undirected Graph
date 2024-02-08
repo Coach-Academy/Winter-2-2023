@@ -1,0 +1,66 @@
+#include <bits/stdc++.h>
+#define FIO ios_base::sync_with_stdio(false), cin.tie(0), cout.tie(0);
+
+using namespace std;
+const int N = 100;
+
+int edgesCnt[N][N];
+vector<int> deg, path;
+vector<vector<int>> adj;
+
+void euler(int u) {
+    for (int v: adj[u]) {
+        if (edgesCnt[u][v] > 0) {
+            edgesCnt[u][v]--;
+            edgesCnt[v][u]--;
+            euler(v);
+        }
+    }
+    path.push_back(u);
+}
+
+int main() {
+    FIO
+    // path in an undirected graph
+    int n, m;
+    cin >> n >> m;
+    adj.resize(n);
+    deg.resize(n);
+    for (int i = 0; i < m; ++i) {
+        int u, v;
+        cin >> u >> v;
+        --u, --v;
+        adj[u].push_back(v);
+        adj[v].push_back(u);
+        deg[u]++;
+        deg[v]++;
+        edgesCnt[u][v]++;
+        edgesCnt[v][u]++;
+    }
+
+    int oddDegree = 0, st = 0;
+    for (int i = 0; i < n; ++i) {
+        if (deg[i] % 2 != 0) {
+            ++oddDegree;
+            st = i;
+        }
+    }
+    if (oddDegree > 2) {
+        cout << "Non Eulerian Graph\n";
+        return 0;
+    }
+    euler(st);
+    if (path.size() == m + 1) {
+
+        if (oddDegree == 0) {
+            cout << "An Eulerian Graph\n";
+        }
+        else {
+            cout << "A Semi-Eulerian Graph\n";
+        }
+
+        for (int u : path)
+            cout << u + 1 << " ";
+        cout << "\n";
+    }
+}
