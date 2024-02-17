@@ -1,0 +1,26 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+
+void solve() {
+    int s1, s2, s3, s4;
+    cin >> s1 >> s2 >> s3 >> s4;
+    int need_count = 0;
+    if (s1 == s2 || s1 == s3 || s1 == s4) {
+        need_count++;
+    }
+    if (s2 == s3 || s2 == s4) {
+        need_count++;
+    }
+    if (s3 == s4) {
+        need_count++;
+    }
+    cout << need_count;
+}
+
+int main() {
+
+        solve();
+
+}
