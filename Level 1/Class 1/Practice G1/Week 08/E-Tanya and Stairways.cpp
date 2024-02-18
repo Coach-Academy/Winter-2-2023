@@ -2,20 +2,20 @@
 
 using namespace std;
 
+
 int main() {
-    int n, total = 0;
+    int n, cnt = 0, x, y;
     cin >> n;
-    vector<int> a(n + 5, 0);
-    for (int i = 1; i <= n; ++i) {
-        cin >> a[i];
+    vector<int> ans;
+    for (int i = 0; i < n; ++i)
+    {
+        cin >> x;
+        if(x == 1 and i != 0)
+                ans.push_back(y);
+        y = x;
     }
-    for (int i = 1; i <= n; ++i) {
-        if(a[i] >= a[i + 1])
-            total++;
-    }
-    cout << total << '\n';
-    for (int i = 1; i <= n; ++i) {
-        if(a[i] >= a[i + 1])
-            cout << a[i] << ' ';
-    }
+    ans.push_back(x);
+    cout << ans.size()  << '\n';
+    for(auto i : ans)
+        cout << i << ' ';
 }
