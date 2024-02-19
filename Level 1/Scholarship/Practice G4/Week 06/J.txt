@@ -1,0 +1,32 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int idxOfPer(int n) {
+    int arr[n], ar[n];
+    for (int i = 0; i < n; ++i) {
+        cin >> arr[i]; // 1 3 2 , 3 1 2
+        ar[i] = arr[i];
+    }
+    sort(ar, ar + n); // 1 2 3
+    int idx = 1;
+    do {
+        if (equal(ar, ar + n, arr)) {
+            return idx;
+        }
+        ++idx;
+        // ar == arr
+        // break;
+        // idx++;
+    } while (next_permutation(ar, ar + n));
+}
+
+int main() {
+    int n;
+    cin >> n;
+    int idxOfArr1 = idxOfPer(n);
+    int idxOfArr2 = idxOfPer(n);
+    cout << abs(idxOfArr1 - idxOfArr2);
+    cout << endl;
+    return 0;
+}
