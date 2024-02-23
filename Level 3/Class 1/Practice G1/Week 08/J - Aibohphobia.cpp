@@ -5,7 +5,6 @@ using namespace std;
 #define ll long long
 
 int main() {
-  freopen("out.txt", "w", stdout);
   int t;
   cin >> t;
   while (t--) {
