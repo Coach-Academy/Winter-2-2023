@@ -1,6 +1,6 @@
 *.exe
 .venv
-
+.vs
 
 # Prerequisites
 *.d
