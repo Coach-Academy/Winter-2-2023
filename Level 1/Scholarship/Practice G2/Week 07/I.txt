@@ -1,0 +1,44 @@
+#include <bits/stdc++.h>
+#include <ext/pb_ds/assoc_container.hpp> //required
+#include <ext/pb_ds/tree_policy.hpp>     //required
+
+using namespace __gnu_pbds;              // required
+using namespace std;
+template<typename T>
+using ordered_set = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
+#define AboRadwan ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0)
+#define ll long long
+//#define int long long
+#define set ordered_set
+#define all(v)        v.begin(), v.end()
+//#define endl "\n"
+#define f first
+#define sd second
+const int N = 1e6 + 50, NN = 105, mod = 1e9 + 7;
+
+void solve() {
+    int n, d;
+    cin >> n >> d;
+    int arr[n];
+    for (int i = 0; i < n; ++i) {
+        cin >> arr[i];
+    }
+    sort(arr, arr + n);
+    if (arr[0] + arr[1] <= d or arr[n - 1] <= d)cout << "YES" << endl;
+    else cout << "NO" << endl;
+}
+
+int32_t main() {
+    AboRadwan;
+    int t = 1;
+    cin >> t;
+    while (t--) {
+        solve();
+    }
+    return 0;
+}
+/*
+ 8 3
+aeabcaez
+
+ */

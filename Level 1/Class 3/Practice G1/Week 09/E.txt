@@ -1,0 +1,41 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+//
+int main() {
+    ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
+    stack<string> st;
+    string s;
+    int t;
+    cin >> t;
+    while (t--) {
+        int x;
+        string tmp;
+        cin >> x;
+        if (x == 1) {
+            cin >> tmp;
+            s += tmp;
+            st.push(s);
+        } else if (x == 2)   //delete
+        {
+            int k;
+            cin >> k;
+            while (k--)s.pop_back();
+            st.push(s);
+        } else if (x == 3) // print
+        {
+            int k;
+            cin >> k;
+            cout << s[k - 1] << '\n';
+        } else if (x == 4) // undo
+        {
+            st.pop();
+            if (!st.empty()) {
+                s = st.top();
+            } else s = "";
+        }
+
+    }
+    return 0;
+}
