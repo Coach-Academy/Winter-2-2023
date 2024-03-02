@@ -1,0 +1,21 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    int n, m, x, y;
+    cin >> n >> m;
+    set<int> s;
+    while (n--) {
+        cin >> x;
+        while (x--) {
+            cin >> y;
+            s.insert(y);
+        }
+    }
+    if (s.size() == m) {
+        cout << "YES";
+    } else
+        cout << "NO";
+    return 0;
+}

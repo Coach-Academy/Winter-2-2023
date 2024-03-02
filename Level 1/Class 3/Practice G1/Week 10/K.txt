@@ -1,0 +1,33 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    int n, s;
+    cin >> n >> s;
+    map<int, int> sell, buy;
+    while (n--) {
+        char c;
+        int x, y;
+        cin >> c >> x >> y;
+        if (c == 'S')sell[x] += y;
+        else buy[-x] += y;
+    }
+    int ss = s;
+    stack<pair<int,int>>st;
+    for (auto i:sell){
+        --ss;
+        st.push(i);
+        if(ss==0)break;
+    }
+    while(!st.empty()){
+        cout << "S " << st.top().first <<" "<< st.top().second <<endl;
+        st.pop();
+    }
+    for (auto i:buy){
+        --s;
+        cout << "B " << -i.first <<" "<< i.second <<endl;
+        if(s==0)break;
+    }
+
+}
