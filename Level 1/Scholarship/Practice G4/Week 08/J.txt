@@ -1,0 +1,32 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    int t;
+    cin >> t;
+    while (t--) {
+        // 0   1   2  3  0 4   5
+        //         |
+        // 4   2   3  6  1   5   1
+        //
+        // 5^4+5^3+5^2+5^1+5^0 ==> MAX
+        int n;
+        cin >> n;
+        vector<int> v(n), pos(n + 1);
+        for (int i = 0; i < n; ++i) {
+            cin >> v[i];
+            pos[v[i]] = i;
+        }
+        int final = n - 1;
+        for (int mx = n; mx >= 1; --mx) {
+            if (pos[mx] > final)continue;
+            for (int j = pos[mx]; j <= final; ++j) {
+                cout << v[j] << " ";
+            }
+            final = pos[mx] - 1;
+        }
+        cout << endl;
+    }
+    return 0;
+}

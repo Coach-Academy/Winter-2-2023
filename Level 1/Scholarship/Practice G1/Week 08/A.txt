@@ -1,0 +1,69 @@
+ 
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+int main() {
+
+    int n;
+    cin >> n;
+    vector<int> positive;
+    vector<int> negative;
+    vector<int> zero;
+
+    for (int i = 0; i < n; i++) {
+        int x;
+        cin >> x;
+
+        if (x < 0) {
+            negative.push_back(x);
+        } else if (x > 0) {
+            positive.push_back(x);
+        } else {
+            zero.push_back(x);
+        }
+    }
+
+    if (positive.size() == 0) {
+        positive.push_back(negative.back());
+        negative.pop_back();
+
+        positive.push_back(negative.back());
+        negative.pop_back();
+    }
+
+    if (negative.size() % 2 == 0) {
+        zero.push_back(negative.back());
+        negative.pop_back();
+    }
+
+    cout << negative.size() << " ";
+    for (auto i: negative) {
+        cout << i << " ";
+    }
+
+    cout << "\n";
+
+    cout << positive.size() << " ";
+    for (auto i: positive) {
+        cout << i << " ";
+    }
+
+    cout << "\n";
+
+    cout << zero.size() << " ";
+    for (auto i: zero) {
+        cout << i << " ";
+    }
+
+    return 0;
+}
+
+
+// 3
+//  0
+
+// (- odd) -2
+// !(- odd) -2 -2 
+// 0
