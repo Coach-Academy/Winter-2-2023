@@ -1,0 +1,28 @@
+ 
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    int t;
+    cin >> t;
+    while (t--) {
+        string s1, s2;
+        cin >> s1 >> s2;
+        set<char> st1, st2;
+        for (auto i: s1)st1.insert(i);
+        for (auto i: s2)st2.insert(i);
+        bool print = 0;
+        for (auto i: st1) {
+            for (auto j: st2) {
+                if (i == j) {
+                    cout << "YES" << endl;
+                    print = 1;
+                    break;
+                }
+            }
+            if (print == 1)break;
+        }
+        if (print == 0)cout << "NO" << endl;
+    }
+}
