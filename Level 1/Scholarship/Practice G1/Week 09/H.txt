@@ -1,0 +1,30 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+//
+int main() {
+    int n;
+    cin >> n;
+    vector<int> v(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> v[i];
+    }
+    long long sum = 0;
+    priority_queue<int, vector<int>, greater<int>> pq;
+    int cnt = 0;
+    // -2 -3 -4
+    for (int i = 0; i < n; ++i) {
+        sum += v[i];
+        ++cnt;
+        pq.push(v[i]);
+        if(sum < 0) {
+            int x = pq.top();
+            pq.pop();
+            sum += (-x);
+            --cnt;
+        }
+    }
+    cout << cnt;
+    return 0;
+}

@@ -1,0 +1,17 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    ios::sync_with_stdio(false);cout.tie(nullptr);cin.tie(nullptr);
+    stack<char> st;
+    string s;
+    cin >> s;
+    for (char c: s) {
+        if (st.empty() or st.top() != c)
+            st.push(c);
+        else st.pop();
+    }
+    cout << (st.empty() ? "Yes\n" : "No\n");
+    return 0;
+}
