@@ -1,0 +1,32 @@
+ 
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    ios::sync_with_stdio(false);
+    cout.tie(nullptr);
+    cin.tie(nullptr);
+    int t;
+    cin >> t;
+    stack<int> st;
+    while (t--) {
+        int x;
+        cin >> x;
+        if (x == 1) {
+            int n;
+            cin >> n;
+            st.push(n);
+        } else if (x == 2) {
+            if (!st.empty())
+                st.pop();
+        } else {
+            if (!st.empty())
+                cout << st.top() << '\n';
+            else
+                cout << "Empty!" << '\n';
+        }
+
+    }
+    return 0;
+}

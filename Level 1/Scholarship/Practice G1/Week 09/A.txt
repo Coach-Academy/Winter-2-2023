@@ -1,0 +1,42 @@
+ 
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main()
+{
+    ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
+    queue<long long> q;
+    long long t; cin>>t;
+    while(t--)
+    {
+        long long x; cin>>x;
+        if(x==1)
+        {
+            long long n;
+            cin>>n;
+            q.push(n);
+        }
+        else if(x==2)
+        {
+            if(q.empty())
+            {
+                continue;
+            }
+            else
+                q.pop();
+        }
+        else if(x==3){
+            if(q.empty())
+            {
+                cout<<"Empty!\n";
+
+            }
+            else
+                cout<<q.front()<<'\n';
+        }
+
+
+    }
+    return 0;
+}
