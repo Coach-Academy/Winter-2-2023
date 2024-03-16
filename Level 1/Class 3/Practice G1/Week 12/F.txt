@@ -1,0 +1,23 @@
+ 
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    int n, s, d;
+    cin >> n >> s >> d;
+    bool check = false;
+    while (n--) {
+        int x, y;
+        cin >> x >> y;
+        if (x >= s or y <= d) {
+
+        }
+        else {
+            check = true;
+        }
+    }
+    if (check)cout << "Yes";
+    else cout << "No";
+    return 0;
+}
