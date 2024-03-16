@@ -1,0 +1,23 @@
+ 
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    string s;
+    getline(cin, s);
+    set<char> st;
+    // 0123456789
+    // {b, a, b, a}
+    for (int i = 1; i < s.size(); i += 3) {
+        st.insert(s[i]);
+    }
+    cout << st.size();
+
+    return 0;
+}
+
+
+
+
+

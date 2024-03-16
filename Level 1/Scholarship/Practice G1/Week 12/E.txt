@@ -1,0 +1,26 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+//bool sumOfProduct(vector<int> a, vector<int> b, int sum, int i) {
+//    if (i == a.size()) {
+//        if (sum == 0)return true;
+//        else return false;
+//    }
+//    sum += a[i] * b[i];
+//    return sumOfProduct(a, b, sum, i + 1);
+//}
+int main() {
+    int n;
+    cin >> n;
+    vector<int> a(n), b(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> a[i];
+    }
+    int sum = 0;
+    for (int i = 0; i < n; ++i) {
+        cin >> b[i];
+        sum += a[i] * b[i];
+    }
+    cout << ((sum == 0) ? "Yes" : "No");
+    return 0;
+}

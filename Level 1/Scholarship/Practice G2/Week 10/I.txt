@@ -1,0 +1,25 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+//
+int main() {
+    int t;
+    cin >> t;
+    while (t--) {
+        int n, k;
+        cin >> n >> k;
+        vector<int> v(n);
+        for (int i = 0; i < n; ++i) {
+            cin >> v[i];
+        }
+        sort(v.begin(), v.end());
+        int cnt = 0;
+        map<int, bool> mp;
+        for (int i = n - 1; i >= 0; --i) {
+            if (mp[v[i]] == 0 and v[i] - cnt * k >= 1)++cnt, mp[v[i]] = 1;
+        }
+        cout << cnt << '\n';
+    }
+    return 0;
+}

@@ -1,0 +1,23 @@
+#include <string>
+#include <iostream>
+using namespace std;
+int main(){
+	string keyboard = "qwertyuiopasdfghjkl;zxcvbnm,./";
+	char c;
+	cin >> c;
+	string happy;
+	cin >> happy;
+	for (int i = 0; i < happy.size(); i++){
+		for (int j = 0; j < keyboard.size(); j++){
+			if (happy[i] == keyboard[j]){
+				if (c == 'L')
+					cout << keyboard[j + 1];
+				else
+					cout << keyboard[j - 1];
+			}
+		}
+	}
+
+
+	return 0;
+}

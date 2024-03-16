@@ -1,0 +1,39 @@
+ 
+#include <iostream>
+#include <vector>
+#include "algorithm"
+
+using namespace std;
+
+int calcMultiOfDigits(int n) {
+    if (n < 10) return n;
+    int product = 1;
+    while (n != 0) {
+        int x = n % 10;
+        if (x != 0)product *= x;
+        n /= 10;
+    }
+    return calcMultiOfDigits(product);
+}
+
+int arr[11][1000005];
+
+int main() {
+    for (int i = 1; i < 1000005; ++i) {
+        int ans = calcMultiOfDigits(i);
+        arr[ans][i] = 1;
+    }
+    for (int i = 2; i < 1000005; ++i) {
+        for (int j = 1; j < 10; ++j) {
+            arr[j][i] += arr[j][i - 1];
+        }
+    }
+    int q;
+    cin >> q;
+    while (q--) {
+        int l, r, k;
+        cin >> l >> r >> k;
+        cout << arr[k][r] - arr[k][l - 1] << endl;
+    }
+
+}

@@ -1,0 +1,24 @@
+ 
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    int b, n, m;
+    cin >> b >> n >> m;
+    vector<int> keys(n), usb(m);
+    for (int i = 0; i < n; ++i) {
+        cin >> keys[i];
+    }
+    for (int i = 0; i < m; ++i) {
+        cin >> usb[i];
+    }
+    int mx = -1;
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < m; ++j) {
+            int sum = keys[i] + usb[j];
+            if (sum <= b)mx = max(mx, sum);
+        }
+    }
+    cout << mx;
+}

@@ -1,0 +1,30 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    int n, idx = 1;
+    cin >> n;
+    int used[500005];
+    priority_queue<pair<int, int>> pq;
+    int cnt = 1;
+    while (n--) {
+        int x;
+        cin >> x;
+        if (x == 1) {
+            int y;
+            cin >> y;
+            pq.push({y, -idx});
+            idx++;
+        } else if (x == 2) {
+            while (used[cnt])++cnt;
+            cout << cnt << " ";
+            used[cnt] = 1;
+        } else {
+            while (used[-pq.top().second])pq.pop();
+            used[-pq.top().second] = 1;
+            cout << -pq.top().second << " ";
+            pq.pop();
+        }
+    }
+}

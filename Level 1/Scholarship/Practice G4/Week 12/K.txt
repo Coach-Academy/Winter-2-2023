@@ -1,0 +1,18 @@
+#include <iostream>
+#include <vector>
+#include "algorithm"
+
+using namespace std;
+
+int sol(int cnt, int limit, int sum) {
+    if (sum >= limit)return cnt;
+    sum += cnt;
+    cnt++;
+    return sol(cnt, limit, sum);
+}
+
+int main() {
+    int n;
+    cin >> n;
+    cout << sol(1, n, 0) - 1 ;
+}

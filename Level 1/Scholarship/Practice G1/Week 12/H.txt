@@ -1,0 +1,17 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int t;
+    cin >> t;
+    long long mn = 1e18;
+    while (t--) {
+        long long a, p, x;
+        cin >> a >> p >> x;
+        if (x - a > 0)mn = min(mn, p);
+    }
+    if (mn == 1e18)mn = -1;
+    cout << mn;
+    return 0;
+}

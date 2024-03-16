@@ -1,0 +1,29 @@
+ 
+#include<bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    int t;
+    cin >> t;
+    while (t--) {
+        int n;
+        cin >> n;
+        vector<int> a(n), b(n), diff(n + 2, 0);
+        for (int i = 0; i < n; ++i) {
+            cin >> a[i];
+        }
+        bool flag = 0;
+        for (int i = 0; i < n; ++i) {
+            cin >> b[i];
+            diff[i + 1] = b[i] - a[i];
+            if (diff[i + 1] < 0)flag = 1;
+        }
+        int cnt = 0;
+        for (int i = 1; i <= n + 1; ++i) {
+            if (diff[i] != diff[i - 1])++cnt;
+        }
+        if (cnt <= 2 and !flag)cout << "YES" << endl;
+        else cout << "NO" << endl;
+    }
+}

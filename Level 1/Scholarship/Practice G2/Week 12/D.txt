@@ -1,0 +1,22 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int truckloads(int n, int l) {
+    if (n <= l)
+        return 1;
+    if (n % 2 == 0)
+        return truckloads(n / 2, l) + truckloads(n / 2, l);
+    else
+        return truckloads(n / 2, l) + truckloads(n / 2 + 1, l);
+
+}
+
+int main() {
+    int n, l;
+    while (cin >> n >> l)
+        cout << truckloads(n, l) << endl;
+    return 0;
+}
+
+

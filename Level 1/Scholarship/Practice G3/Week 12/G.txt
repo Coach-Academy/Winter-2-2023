@@ -1,0 +1,18 @@
+#include <iostream>
+using namespace std;
+bool sol(int i, string s,char st,char ed) {
+    if (i >= s.size())
+        return 1;
+    if (s[i] < st or s[i] > ed)
+        return 0;
+    return sol(i + 2, s,st,ed);
+}
+int main() {
+    string s;
+    cin >> s;
+    bool z = sol(0, s,'a','z');
+    bool zz = sol(1, s,'A','Z');
+    if (z and zz)cout << "Yes";
+    else cout << "No";
+    return 0;
+}
